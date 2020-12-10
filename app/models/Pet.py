@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from app.models.validators import max_value_years, min_value, max_value_months, max_value_weeks
+from app.models.validators import min_value
 
 PET_CHOICES = (
     ('Dog', 'dog'),
@@ -11,13 +11,17 @@ PET_CHOICES = (
 
 )
 
+GENDER = (
+    ('Female', 'female'),
+    ('Male', 'male')
+)
+
 
 class Pet(models.Model):
     image = models.ImageField(upload_to='Pets')
-    years = models.PositiveIntegerField(blank=False, default=0, validators=[max_value_years, min_value])
-    months = models.PositiveIntegerField(blank=False, default=0, validators=[max_value_months, min_value])
-    weeks = models.PositiveIntegerField(blank=False, default=0, validators=[max_value_weeks, min_value])
+    months = models.PositiveIntegerField(blank=False, default=0, validators=[min_value])
     type = models.CharField(choices=PET_CHOICES, blank=False, max_length=10)
     breed = models.CharField(default='Unknown', blank=False, max_length=30)
+    gender = models.CharField(default='Male', blank=False, choices=GENDER, max_length=10)
     description = models.TextField(default=' ')
     user = models.ForeignKey(User, on_delete=models.CASCADE)

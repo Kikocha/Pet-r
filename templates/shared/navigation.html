@@ -1,26 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Find Your Pet</a>
+  <a class="navbar-brand" href="{% url 'home page'%}">Find Your Pet</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout page' %}">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login page' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register page' %}">Register</a>
+            </li>
+        {% endif %}
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="{% url 'pets filter' 'Dog'%}">Dogs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
+          <a class="nav-link" href="{% url 'pets filter' 'Cat'%}">Cats</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Dogs</a>
-          <a class="dropdown-item" href="#">Cats</a>
-          <a class="dropdown-item" href="#">Birds</a>
-          <a class="dropdown-item" href="#">Other</a>
-        </div>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'pets filter' 'Bird'%}">Birds</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'pets filter' 'Other'%}">Other</a>
       </li>
     </ul>
   </div>

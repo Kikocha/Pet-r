@@ -3,8 +3,9 @@ from django.shortcuts import render
 from app.models.Pet import Pet
 
 
-def home_page(request):
+def pets_filter(request, version):
+    pets = [pet for pet in Pet.objects.all() if pet.type == version]
     context = {
-        'Pets': Pet.objects.all()
+        'Pets': pets
     }
     return render(request, 'home_page.html', context)

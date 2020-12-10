@@ -17,16 +17,14 @@
                 <div class="card">
                     <img src="{{ item.image.url }}" class="card-img-top" alt="image">
                     <div class="card-body">
-                        <h5 class="card-title">Type:  {{ item.type }}</h5>
+                        <h5 class="card-title">Species:  {{ item.type }}</h5>
                         <p class="card-text">Breed:  {{ item.breed }}</p>
-                        <p>Years: {{ item.years }}</p>
+                        <p class="card-text">Gender: {{ item.gender }}</p>
                         <p>Months: {{ item.months }}</p>
-                        <p>Weeks: {{ item.weeks }}</p>
                         <a href="#" class="btn btn-primary">Details</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
-
 </body>
 </html>
