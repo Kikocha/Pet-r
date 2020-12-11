@@ -13,15 +13,15 @@
     {% include 'shared/navigation.html' %}
     <h1 class='text-center'>All Pet photos</h1>
             {% for item in Pets %}
-            <div class="row">
-                <div class="card">
-                    <img src="{{ item.image.url }}" class="card-img-top" alt="image">
+            <div class="row d-flex justify-content-center">
+                <div class="card" style="width: 18rem; height: 33rem">
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="image"  style="height: 300px; width: 100%">
                     <div class="card-body">
                         <h5 class="card-title">Species:  {{ item.type }}</h5>
                         <p class="card-text">Breed:  {{ item.breed }}</p>
                         <p class="card-text">Gender: {{ item.gender }}</p>
-                        <p>Months: {{ item.months }}</p>
-                        <a href="#" class="btn btn-primary">Details</a>
+                        <p class="card-text">Months: {{ item.months }}</p>
+                        <a href="{% url 'details post page' item.pk%}" class="btn btn-primary">Details</a>
                     </div>
                 </div>
             </div>

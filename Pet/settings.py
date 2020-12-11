@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'Pet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Pet_db',
+        'NAME': 'Pet_r_db',
         'USER': 'postgres',
         'PASSWORD': 'peroludiarom123',
         'HOST': '127.0.0.1',
@@ -131,3 +131,5 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = join(BASE_DIR, 'media')
+
+LOGIN_URL = 'login page'
