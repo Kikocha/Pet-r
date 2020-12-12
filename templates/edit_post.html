@@ -11,9 +11,9 @@
 <body>
 {% include 'shared/navigation.html' %}
 {% if user != pet.user %}
-    <h1 class="text-center">You can't edit other users posts!</h1>
+    <h1 class="text-center" style="padding-top: 50px">You can't edit other users posts!</h1>
 {% else %}
-    <h1 class="text-center">Edit Post</h1>
+    <h1 class="text-center" style="padding-top: 50px">Edit Post</h1>
     <div class="row d-flex justify-content-center">
         <form method="post" action="{% url 'edit post page' pet.pk%}" enctype="multipart/form-data">
             {% csrf_token %}

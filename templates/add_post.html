@@ -10,7 +10,7 @@
 </head>
 <body>
 {% include 'shared/navigation.html' %}
-<h1 class="text-center">Create Post</h1>
+<h1 class="text-center" style="padding-top: 50px">Create Post</h1>
 <div class="row d-flex justify-content-center">
     <form method="post" action="{% url 'add post page'%}" enctype="multipart/form-data">
         {% csrf_token %}

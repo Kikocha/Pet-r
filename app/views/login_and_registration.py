@@ -6,6 +6,13 @@ from app.forms.login_form import LoginForm
 from app.forms.registration_form import UserExtendForm, UserForm
 
 
+def get_redirect_url(params):
+    redirect_url = params.get('return_url')
+    if redirect_url:
+        return redirect_url
+    return 'home page'
+
+
 def login_view(request):
     if request.method == 'GET':
         context = {
@@ -14,6 +21,7 @@ def login_view(request):
         }
         return render(request, 'registration_and_login/login.html', context)
     else:
+        return_url = get_redirect_url(request.POST)
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
             username = login_form.cleaned_data['username']
@@ -21,7 +29,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('home page')
+                return redirect(return_url)
         context = {
             'login_form': login_form,
             'user_found': False

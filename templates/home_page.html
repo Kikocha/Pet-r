@@ -11,9 +11,9 @@
 </head>
 <body>
     {% include 'shared/navigation.html' %}
-    <h1 class='text-center'>{{ type }} photos</h1>
+    <h1 class='text-center' style="padding-top: 50px">{{ type }} photos</h1>
     {% for item in Pets %}
-        <div style="display: inline-block; padding-left: 10px; padding-bottom: 10px">
+        <div style="display: inline-block; padding-left: 10px; padding-top: 10px">
             <div class="card" style="width: 18rem; height: 30rem">
                 <img src="{{ item.image.url }}" class="card-img-top" alt="image"  style="height: 250px; width: 100%">
                 <div class="card-body">

@@ -5,7 +5,11 @@ from app.models.Pet import Pet
 
 
 def my_posts_view(request, username):
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except:
+        user = False
+        return render(request, 'my_posts_page.html', {'user': user})
     pets = Pet.objects.filter(user=user)
     try:
         pet_user = pets[0].user.username

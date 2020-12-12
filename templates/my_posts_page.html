@@ -11,24 +11,28 @@
 </head>
 <body>
     {% include 'shared/navigation.html' %}
-    <h1 class='text-center'>{{ pet_user }} Pets</h1>
-            {% for item in Pets %}
-            <div style="display: inline-block; padding-left: 10px; padding-bottom: 10px">
-                <div class="card" style="width: 18rem; height: 30rem">
-                    <img src="{{ item.image.url }}" class="card-img-top" alt="image"  style="height: 250px; width: 100%">
-                    <div class="card-body">
-                        <h5 class="card-title">Species:  {{ item.type }}</h5>
-                        <p class="card-text">Breed:  {{ item.breed }}</p>
-                        <p class="card-text">Gender: {{ item.gender }}</p>
-                        <p class="card-text">Months: {{ item.months }}</p>
-                        <a href="{% url 'details post page' item.pk%}" class="btn btn-primary">Details</a>
-                        {% if user == item.user%}
-                            <a href="{% url 'edit post page' item.pk%}" class="btn btn-secondary">Edit</a>
-                            <a href="{% url 'delete post page' item.pk%}" class="btn btn-danger">Delete</a>
-                        {% endif %}
+    {% if user %}
+        <h1 class='text-center' style="padding-top: 50px">{{ pet_user }} Pets</h1>
+                {% for item in Pets %}
+                <div style="display: inline-block; padding-left: 10px; padding-top: 10px">
+                    <div class="card" style="width: 18rem; height: 30rem">
+                        <img src="{{ item.image.url }}" class="card-img-top" alt="image"  style="height: 250px; width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Species:  {{ item.type }}</h5>
+                            <p class="card-text">Breed:  {{ item.breed }}</p>
+                            <p class="card-text">Gender: {{ item.gender }}</p>
+                            <p class="card-text">Months: {{ item.months }}</p>
+                            <a href="{% url 'details post page' item.pk%}" class="btn btn-primary">Details</a>
+                            {% if user == item.user%}
+                                <a href="{% url 'edit post page' item.pk%}" class="btn btn-secondary">Edit</a>
+                                <a href="{% url 'delete post page' item.pk%}" class="btn btn-danger">Delete</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
+    {% else %}
+        <h1 class='text-center' style="padding-top: 50px">User does not exist.</h1>
+    {% endif %}
 </body>
 </html>

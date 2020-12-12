@@ -20,13 +20,14 @@
                 <p class="card-text">Breed:  {{ pet.breed }}</p>
                 <p class="card-text">Gender: {{ pet.gender }}</p>
                 <p class="card-text">Months: {{ pet.months }}</p>
+                <p class="card-text">Location: {{ pet.location }}</p>
                 <h5 class="card-text text-center">Description</h5>
                 <div class="card" style="width: 37rem">
                     <div class="card-body" style="width: 37rem">
                         <p class="card-text">{{ pet.description }}</p>
                     </div>
                 </div>
-                <p class="card-text">Owner:  {{ pet.user.first_name }} {{ pet.user.last_name }}</p>
+                <p class="card-text" style="padding-top: 10px">Owner:  {{ pet.user.first_name }} {{ pet.user.last_name }}</p>
                     {% if pet.user.email %}
                         <p  class="card-text">Email: {{ pet.user.email }}</p>
                     {% else %}
@@ -35,6 +36,7 @@
                     {% if extend_user %}
                         <p class="card-text">Phone number: {{ extend_user.phone_number }}</p>
                     {% endif %}
+                    <a href="{% url 'my posts page' pet.user.username %}">Owner's other posts</a>
             </div>
         </div>
     </div>

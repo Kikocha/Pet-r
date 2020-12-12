@@ -7,7 +7,10 @@ from app.models.Pet import Pet
 
 @login_required
 def edit_post(request, pk):
-    pet = Pet.objects.get(pk=pk)
+    try:
+        pet = Pet.objects.get(pk=pk)
+    except:
+        return render(request, 'pet_not_exists.html')
     if request.method == 'GET':
         form = PetForm(instance=pet)
         context = {
