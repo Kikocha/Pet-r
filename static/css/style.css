@@ -6,3 +6,5 @@ div.card {
 div.row {
     padding-bottom: 10px;
 }
+
+.card {display:inline-block;}
