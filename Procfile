@@ -1,1 +1,0 @@
-web: python manage.py runserver https://pet-r.herokuapp.com/
