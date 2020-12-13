@@ -18,7 +18,7 @@ GENDER = (
 
 
 class Pet(models.Model):
-    image = models.ImageField(upload_to='Pets')
+    image = models.ImageField()
     months = models.PositiveIntegerField(blank=False, default=0, validators=[min_months_value, max_months_value])
     type = models.CharField(choices=PET_CHOICES, blank=False, max_length=10)
     breed = models.CharField(default='Unknown', blank=False, max_length=20)

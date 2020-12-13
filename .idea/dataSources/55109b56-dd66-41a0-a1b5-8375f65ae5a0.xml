@@ -1508,6 +1508,7 @@ UC/10
     </table>
     <table id="109" parent="47" name="app_pet">
       <ObjectId>28008</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1938</StateNumber>
     </table>
