@@ -34,7 +34,7 @@ class UserForm(UserCreationForm):
 class UserExtendForm(forms.ModelForm):
     class Meta:
         model = ExtendUser
-        exclude = ('user', 'profile_pic')
+        exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
