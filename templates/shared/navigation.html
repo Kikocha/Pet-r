@@ -27,21 +27,27 @@
                 <a class="nav-link" href="{% url 'login page'%}">Login</a>
             </li>
             <li class="nav-item">
+                <p style="padding-left: 10px; padding-right: 10px"></p>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'register page'%}">Register</a>
             </li>
         {% endif %}
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'pets filter' 'Dog'%}">Dogs</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'pets filter' 'Cat'%}">Cats</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'pets filter' 'Bird'%}">Birds</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'pets filter' 'Other'%}">Other</a>
-      </li>
+        <li class="nav-item">
+            <p style="padding-left: 10px; padding-right: 10px"></p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'pets filter' 'Dog'%}">Dogs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'pets filter' 'Cat'%}">Cats</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'pets filter' 'Bird'%}">Birds</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'pets filter' 'Other'%}">Other</a>
+        </li>
     </ul>
   </div>
 </nav>
