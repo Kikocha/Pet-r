@@ -43,12 +43,10 @@ class HomePageViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration_and_login/login.html')
 
-    #to finish
-
     def test_postLogin_if_the_rightLoginForm_is_used_and_user_exists(self):
         response = self.test_client.post(reverse('login page'), {
-            'username': 'kikocha2',
-            'password': 'kesten123',
+            'username': 'Username',
+            'password': 'Password',
         })
         self.assertEqual(response.status_code, 200)
 

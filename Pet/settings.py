@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'Pet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -141,5 +141,4 @@ MEDIA_ROOT = join(BASE_DIR, 'media')
 
 LOGIN_URL = 'login page'
 
-# Activate Django-Heroku.
 django_heroku.settings(locals())

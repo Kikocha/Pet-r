@@ -12,5 +12,6 @@ def delete_post(request, pk):
         return render(request, 'pet_not_exists.html')
     if request.user.username != pet.user.username:
         return render(request, 'delete_if_invalid_user.html')
+    pet.image.delete()
     pet.delete()
     return redirect('home page')

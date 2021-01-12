@@ -1,14 +1,8 @@
 from django import forms
 
 
-def min_months_value(value):
-    if value < 0:
-        raise forms.ValidationError('Months should be a positive number')
-    return value
-
-
-def max_months_value(value):
-    if value > 200:
+def months_value_validator(value):
+    if value > 200 or value < 0:
         raise forms.ValidationError('Months should be between 0 and 200')
     return value
 
